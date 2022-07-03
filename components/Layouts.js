@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import useStyles from '../utils/styles';
 
-export default function Layouts({ children }) {
+export default function Layouts({ title, children }) {
   const classes = useStyles();
 
   return (

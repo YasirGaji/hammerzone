@@ -1,6 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import data from '../../utils/data';
+import Layout from '../../components/Layouts';
+import NextLink from 'next/link';
+import { Link } from '@material-ui/core';
 
 export default function ProductScreen() {
   const router = useRouter();
@@ -11,8 +14,12 @@ export default function ProductScreen() {
   }
 
   return (
-    <div>
-      <h1>{product.name}</h1>
-    </div>
+    <Layout title={product.name}>
+      <div>
+        <NextLink>
+          <Link>Back to products</Link>
+        </NextLink>
+      </div>
+    </Layout>
   );
 }
