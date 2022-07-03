@@ -16,7 +16,7 @@ export default function Layouts({ title, children }) {
   return (
     <div>
       <Head>
-        <title>HammerZone</title>
+        <title>{title ? `${title} - HammerZone` : 'HammerZone'}</title>
       </Head>
 
       <AppBar position="static" className={classes.navbar}>
