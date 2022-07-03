@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
 
   main: {
@@ -24,6 +24,11 @@ const useStyles = makeStyles({
 
   footer: {
     textAlign: 'center',
+  },
+
+  section: {
+    marginTop: 10,
+    marginBottom: '10px',
   },
 });
 
