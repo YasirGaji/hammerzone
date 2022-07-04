@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Grid, Link } from '@material-ui/core';
+import { Grid, Link, List, ListItem } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import data from '../../utils/data';
 import Layout from '../../components/Layouts';
@@ -33,6 +33,15 @@ export default function ProductScreen() {
             height={640}
             layout="responsive"
           ></Image>
+        </Grid>
+
+        <Grid item md={3} xs={12}>
+          <List>
+            <ListItem>
+              <strong>Category:</strong> {product.category}
+              <strong>Name:</strong> {product.name}
+            </ListItem>
+          </List>
         </Grid>
       </Grid>
     </Layout>
