@@ -1,6 +1,14 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Grid, Link, List, ListItem } from '@material-ui/core';
+import {
+  Card,
+  Grid,
+  Link,
+  List,
+  ListItem,
+  Typography,
+  Button,
+} from '@material-ui/core';
 import { useRouter } from 'next/router';
 import data from '../../utils/data';
 import Layout from '../../components/Layouts';
@@ -17,10 +25,12 @@ export default function ProductScreen() {
   }
 
   return (
-    <Layout title={product.name}>
+    <Layout title={product.name} description={product.description}>
       <div className={classes.section}>
         <NextLink href="/" passHref>
-          <Link>Back to products</Link>
+          <Link>
+            <Typography>Back to products</Typography>
+          </Link>
         </NextLink>
       </div>
 
@@ -38,10 +48,73 @@ export default function ProductScreen() {
         <Grid item md={3} xs={12}>
           <List>
             <ListItem>
-              <strong>Category:</strong> {product.category}
-              <strong>Name:</strong> {product.name}
+              <Typography component={h1}>
+                <strong>Name: </strong> {product.name}
+              </Typography>
+            </ListItem>
+
+            <ListItem>
+              <Typography>
+                <strong>Category: </strong> {product.category}
+              </Typography>
+            </ListItem>
+
+            <ListItem>
+              <Typography>
+                <strong>Brand: </strong> {product.brand}
+              </Typography>
+            </ListItem>
+
+            <ListItem>
+              <Typography>
+                <strong>Rating: </strong> {product.rating}
+                stars ({product.numReviews} reviews)
+              </Typography>
+            </ListItem>
+
+            <ListItem>
+              <Typography>
+                <strong>Description: </strong>
+                {product.description}
+              </Typography>
             </ListItem>
           </List>
+        </Grid>
+
+        <Grid item md={3} xs={12}>
+          <Card>
+            <List>
+              <ListItem>
+                <Grid container>
+                  <Grid item xs={6}>
+                    <Typography>Price</Typography>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Typography>₦{product.price}</Typography>
+                  </Grid>
+                </Grid>
+              </ListItem>
+
+              <ListItem>
+                <Grid container>
+                  <Grid item xs={6}>
+                    <Typography>Status</Typography>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Typography>
+                      {product.countInStock > 0 ? 'In stock' : 'Out of stock'}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </ListItem>
+
+              <ListItem>
+                <Button fullWidth variant="contained" color="primary">
+                  Add to cart
+                </Button>
+              </ListItem>
+            </List>
+          </Card>
         </Grid>
       </Grid>
     </Layout>
