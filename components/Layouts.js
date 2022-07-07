@@ -27,6 +27,20 @@ export default function Layouts({ title, description, children }) {
         fontWeigtht: 400,
         margin: '1rem 0',
       },
+
+      body1: {
+        fontWeight: 'normal',
+      },
+    },
+
+    palette: {
+      type: 'light',
+      primary: {
+        main: '#f0c000',
+      },
+      secondary: {
+        main: '#208080',
+      },
     },
   });
   const classes = useStyles();
